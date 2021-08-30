@@ -34,6 +34,14 @@ class RandomTurtle(turtle.Turtle):
             self.right(270)
             self.forward(self.line_length)
 
+    def circle_angle(self, circ_radius, circ_angle):
+        self.circ_angle = circ_angle
+        self.circ_radius = circ_radius
+        self.setheading(circ_angle)
+        self.circle(self.circ_radius)
+
+
+
     def turtle_color(self):
         r = random.randint(0, 255)
         g = random.randint(0, 255)
@@ -53,13 +61,16 @@ class RandomTurtle(turtle.Turtle):
 #     tim.color(random.choice(colours))
 #     draw_shape(edge_count)
 
-tim = RandomTurtle(5,20,10)
+tim = RandomTurtle(1, 1, 10)
 tim.shape("circle")
 tim.pendown()
 
-while True:
-    tim.turtle_color()
-    tim.move()
+# while True:
+#     tim.turtle_color()
+#     tim.move()
+
+for ang in range(0,360,10):
+    tim.circle_angle(100, ang)
 
 screen = Screen()
 screen.exitonclick()
